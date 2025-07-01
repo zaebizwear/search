@@ -1,1 +1,412 @@
-demochka
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta name="description" content="Dedok - отечественный приватный поисковик. Поиск без отслеживания и рекламы.">
+    <meta name="keywords" content="приватный поиск, отечественный поисковик, безопасный поиск">
+    <meta name="author" content="Dedok Team">
+    <link rel="canonical" href="https://dedok.fun">
+    <meta property="og:title" content="Dedok - Отечественный приватный поисковик">
+    <meta property="og:description" content="Ищите в интернете без отслеживания. Ваши данные остаются конфиденциальными.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://dedok.fun">
+    <meta property="og:image" content="https://dedok.fun/logo.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Dedok - Отечественный приватный поисковик">
+    <meta name="twitter:description" content="Поисковая система, которая уважает вашу приватность">
+    <meta name="twitter:image" content="https://dedok.fun/logo.png">
+    <title>Dedok - Отечественный приватный поисковик</title>
+    <link rel="icon" href="logo.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script async src="https://cse.google.com/cse.js?cx=947418e0de1824130"></script>
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org",
+        "@type":"WebSite",
+        "name":"Dedok",
+        "url":"https://dedok.fun/",
+        "potentialAction":{
+            "@type":"SearchAction",
+            "target":"https://dedok.fun/?q={search_term_string}",
+            "query-input":"required name=search_term_string"
+        },
+        "description":"Отечественный приватный поисковик",
+        "image":"https://dedok.fun/logo.png"
+    }
+    </script>
+    <style>
+        :root{
+            --primary-bg:#0f0f12;
+            --text-primary:#f0f0f0;
+            --text-secondary:#b0b0c0;
+            --accent:#de9967;
+            --border:#343442;
+            --card-bg:#1c1c24;
+            --shadow:0 4px 12px rgba(0,0,0,0.25)
+        }
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box
+        }
+        body{
+            background-color:var(--primary-bg);
+            color:var(--text-primary);
+            font-family:Inter,-apple-system,BlinkMacSystemFont,sans-serif;
+            line-height:1.5;
+            min-height:100vh;
+            display:flex;
+            flex-direction:column;
+            padding:0
+        }
+        .container{
+            max-width:800px;
+            width:100%;
+            margin:0 auto;
+            display:flex;
+            flex-direction:column;
+            min-height:100vh;
+            padding:20px
+        }
+        header{
+            padding:40px 0 20px;
+            text-align:center
+        }
+        .logo-container{
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            margin-bottom:20px
+        }
+        .logo-img{
+            width:60px;
+            height:60px;
+            margin-right:15px;
+            border-radius:12px;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            overflow:hidden;
+        }
+        .logo-img img{
+            width:100%;
+            height:100%;
+            object-fit:contain
+        }
+        .logo-text{
+            font-size:42px;
+            font-weight:700;
+            color:var(--accent);
+            letter-spacing:-1.5px
+        }
+        .tagline{
+            color:var(--text-secondary);
+            font-size:18px;
+            font-weight:400;
+            max-width:500px;
+            margin:0 auto
+        }
+        .search-container{
+            margin:40px 0;
+            position:relative
+        }
+        .gsc-control-cse{
+            background-color:transparent!important;
+            border:none!important;
+            padding:0!important
+        }
+        .gsc-search-box{
+            margin-bottom:0!important
+        }
+        .gsc-input-box{
+            border:1px solid var(--border)!important;
+            border-radius:30px!important;
+            height:58px!important;
+            background:var(--card-bg)!important
+        }
+        .gsc-input-box:focus-within{
+            box-shadow:0 0 0 2px var(--accent)!important;
+            border-color:var(--accent)!important
+        }
+        .gsib_a{
+            padding:0 15px!important
+        }
+        .gsc-input{
+            background:transparent!important;
+            padding:0!important
+        }
+        input.gsc-input{
+            color:var(--text-primary)!important;
+            font-size:18px!important;
+            height:56px!important;
+            padding:0 15px!important
+        }
+        .gsc-search-button{
+            margin:0!important;
+            padding:0 15px!important
+        }
+        .gsc-search-button button{
+            background:var(--accent)!important;
+            border:none!important;
+            border-radius:24px!important;
+            color:var(--primary-bg)!important;
+            font-family:Inter,sans-serif!important;
+            font-size:16px!important;
+            font-weight:600!important;
+            height:44px!important;
+            padding:0 28px!important
+        }
+        .domestic-block{
+            background:linear-gradient(135deg,#1c1c24 0%,#252530 100%);
+            border:1px solid var(--border);
+            border-radius:16px;
+            padding:30px;
+            margin:40px 0;
+            box-shadow:var(--shadow);
+            text-align:center
+        }
+        .domestic-title{
+            font-size:28px;
+            font-weight:700;
+            margin-bottom:20px;
+            color:var(--accent);
+            position:relative;
+            display:inline-block
+        }
+        .domestic-title:after{
+            content:"";
+            position:absolute;
+            bottom:-10px;
+            left:50%;
+            transform:translateX(-50%);
+            width:60px;
+            height:3px;
+            background:var(--accent);
+            border-radius:3px
+        }
+        .domestic-text{
+            color:var(--text-secondary);
+            font-size:18px;
+            line-height:1.7;
+            max-width:700px;
+            margin:30px auto
+        }
+        .features-grid{
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+            gap:25px;
+            margin-top:30px
+        }
+        .feature-item{
+            padding:25px 20px;
+            background:rgba(222,153,103,0.08);
+            border-radius:12px
+        }
+        .feature-icon{
+            font-size:36px;
+            margin-bottom:15px;
+            color:var(--accent)
+        }
+        .feature-title{
+            font-size:18px;
+            font-weight:600;
+            margin-bottom:10px
+        }
+        .feature-desc{
+            color:var(--text-secondary);
+            font-size:15px
+        }
+        .gsc-results-wrapper-overlay{
+            background:var(--primary-bg)!important;
+            border:1px solid var(--border)!important;
+            border-radius:16px!important;
+            box-shadow:var(--shadow)!important;
+            margin-top:15px!important
+        }
+        .gsc-tabsArea{
+            border-bottom:1px solid var(--border)!important;
+            padding:0 20px!important
+        }
+        .gsc-tabHeader{
+            padding:12px 0!important;
+            margin:0 20px 0 0!important
+        }
+        .gsc-tabHeader.gsc-tabhActive{
+            border-bottom:2px solid var(--accent)!important;
+            color:var(--accent)!important
+        }
+        .gsc-results{
+            padding:0 20px 20px!important
+        }
+        .gsc-webResult.gsc-result{
+            border-bottom:1px solid var(--border)!important;
+            padding:20px 0!important;
+            background:transparent!important
+        }
+        .gs-webResult.gs-result a.gs-title,.gs-webResult.gs-result a.gs-title b{
+            color:var(--accent)!important;
+            font-size:20px!important;
+            text-decoration:none!important
+        }
+        .gs-webResult.gs-result a.gs-title:hover,.gs-webResult.gs-result a.gs-title:hover b{
+            text-decoration:underline!important
+        }
+        .gs-webResult .gs-snippet,.gs-fileFormatType{
+            color:var(--text-secondary)!important
+        }
+        .gsc-url-top,.gsc-url-bottom{
+            color:#00b894!important
+        }
+        .gsc-cursor-box{
+            margin-top:20px!important;
+            text-align:center!important
+        }
+        .gsc-cursor-page{
+            color:var(--accent)!important;
+            border:none!important;
+            background:transparent!important;
+            font-size:16px!important;
+            padding:8px 16px!important;
+            margin:0 5px!important;
+            border-radius:6px!important
+        }
+        .gsc-cursor-current-page{
+            background:var(--accent)!important;
+            color:white!important
+        }
+        footer{
+            margin-top:auto;
+            padding:40px 0 20px;
+            text-align:center;
+            color:var(--text-secondary);
+            font-size:14px;
+            border-top:1px solid var(--border)
+        }
+        .footer-links{
+            display:flex;
+            justify-content:center;
+            gap:25px;
+            margin-top:15px;
+            flex-wrap:wrap
+        }
+        .footer-link{
+            color:var(--text-secondary);
+            text-decoration:none
+        }
+        .footer-link:hover{
+            color:var(--accent)
+        }
+        @media (max-width:768px){
+            .container{padding:15px}
+            .logo-img{width:50px;height:50px}
+            .logo-text{font-size:32px}
+            .tagline{font-size:16px}
+            .search-container{margin:30px 0}
+            .domestic-block{padding:25px 15px}
+            .domestic-title{font-size:24px}
+            .domestic-text{font-size:16px}
+            .features-grid{grid-template-columns:1fr}
+            input.gsc-input{font-size:16px!important}
+            .gsc-search-button button{padding:0 20px!important;font-size:14px!important}
+        }
+        @media (max-width:480px){
+            .logo-container{flex-direction:column;text-align:center}
+            .logo-img{margin-right:0;margin-bottom:10px}
+            .domestic-block{margin:20px 0}
+            .gsc-input-box{height:52px!important}
+            input.gsc-input{height:50px!important;font-size:15px!important}
+            .gsc-search-button button{height:40px!important}
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo-container">
+                <div class="logo-img">
+                    <img src="logo.png" alt="Dedok Logo">
+                </div>
+                <div class="logo-text">Dedok</div>
+            </div>
+            <div class="tagline">Отечественный приватный поисковик</div>
+        </header>
+        
+        <div class="search-container">
+            <div class="gcse-search"></div>
+        </div>
+        
+        <div class="domestic-block">
+            <h2 class="domestic-title">СДЕЛАНО В РОССИИ</h2>
+            <p class="domestic-text">
+                Dedok - отечественный приватный поисковик, разработанный с соблюдением законодательства о защите персональных данных. 
+                Мы гарантируем конфиденциальность ваших запросов и отсутствие их хранения.
+            </p>
+            
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">🔒</div>
+                    <h3 class="feature-title">Абсолютная приватность</h3>
+                    <p class="feature-desc">Ваши поисковые запросы не сохраняются</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🚫</div>
+                    <h3 class="feature-title">Без отслеживания</h3>
+                    <p class="feature-desc">Отсутствие куки, трекеров и отпечатков</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🇷🇺</div>
+                    <h3 class="feature-title">Отечественный продукт</h3>
+                    <p class="feature-desc">Разработано в России для российских пользователей</p>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>© 2025 Dedok — Отечественный приватный поисковик</p>
+            <p>Защита вашей конфиденциальности — наш главный приоритет</p>
+            
+            <div class="footer-links">
+                <a href="#" class="footer-link">О проекте</a>
+                <a href="#" class="footer-link">Принципы приватности</a>
+                <a href="#" class="footer-link">Контакты</a>
+            </div>
+        </footer>
+    </div>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded",function(){
+            setTimeout(function(){
+                const googleLogo=document.querySelector(".gcse-branding");
+                if(googleLogo){googleLogo.style.display="none"}
+                const searchInput=document.querySelector("input.gsc-input");
+                if(searchInput){searchInput.placeholder="Поиск в интернете без отслеживания..."}
+                const searchButton=document.querySelector(".gsc-search-button button");
+                if(searchButton){searchButton.textContent="Поиск Dedok"}
+                
+                function setLinksToOpenInNewTab(){
+                    const resultLinks=document.querySelectorAll(".gsc-results .gs-title a");
+                    resultLinks.forEach(link=>{
+                        link.target="_blank";
+                    });
+                }
+                
+                const resultsContainer=document.querySelector(".gsc-results");
+                if(resultsContainer){
+                    setLinksToOpenInNewTab();
+                    
+                    const observer=new MutationObserver(setLinksToOpenInNewTab);
+                    observer.observe(resultsContainer,{childList:true,subtree:true});
+                }
+            },1000);
+            
+            document.addEventListener("contextmenu",function(e){e.preventDefault()});
+            document.onkeydown=function(e){
+                if(e.ctrlKey&&(e.keyCode==85||e.keyCode==83||e.keyCode==73||e.keyCode==67||e.keyCode==74||e.keyCode==80||e.keyCode==117)){
+                    return false
+                }
+            }
+        });
+    </script>
+</body>
+</html>
